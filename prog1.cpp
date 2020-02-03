@@ -97,7 +97,8 @@ int main(int argc, char** argv) {
 
     double time_now = MPI_Wtime();
     double start_time = 0;
-    MPI_Reduce(&start_time, &time_now, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD); 
+    MPI_Reduce(&time_now, &start_time, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD);
+    
     if(argc<3) {
       if(world_rank == 0){
 	 printf("\nNo Extra Command Line Argument Passed Other Than Program Name");
@@ -117,10 +118,6 @@ int main(int argc, char** argv) {
       MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
       MPI_Bcast(&R, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-       if(world_rank == 0){
-	 //drawgraph();
-      }
-    
       if(N < 5000000 || R > 100){
 	valid_entry = false;
 	if(world_rank == 0){
@@ -151,18 +148,16 @@ int main(int argc, char** argv) {
 	     }
 	     if(world_rank == 0){
 		 float total_est_pi = pi_sum/R;
-		 char output_buffer[50];
+		 char output_buffer[800];
 		 char raw_buffer[50];
-		 double current_time = MPI_Wtime();
-                 double end_time = 0;
-		 MPI_Reduce(&end_time, &current_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+		 double end_time = MPI_Wtime();
 		double computation_time = end_time - start_time;
 		 sprintf(output_buffer,  "N= %d, R= %d, P= %d, PI= %f\nTime= %f seconds\n", N, R, world_size, total_est_pi, computation_time);
 		  sprintf(raw_buffer,  "%d, %d, %d, %f, %f\n", N, R, world_size, total_est_pi, computation_time);
-		 
-		 printf("%s\n",output_buffer);
 
-		 ofstream myfile;
+		  printf(output_buffer);
+
+		  std::ofstream myfile;
 		 if(clear_output){
 		    myfile.open("output.txt");
 		 }
