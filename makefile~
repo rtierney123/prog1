@@ -1,0 +1,11 @@
+#!/bin/bash
+target:
+	mpic++ prog1.cpp -o prog1 -I/usr/include/python2.7 -lpython2.7 -I/usr/local/lib/matplotlib-cpp-master
+
+graph-processors:
+	LOOPS=16
+	for ((i=1; i <= ${LOOPS}; ++i)) do mpirun -np i prog1 6000000 10; done
+	.PHONY: loop
+
+
+
