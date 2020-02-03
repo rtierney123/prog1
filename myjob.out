@@ -1,26 +1,77 @@
 ---------------------------------------
-Begin PBS Prologue Mon Feb  3 17:17:45 EST 2020
-Job ID:     139281.ice-sched.pace.gatech.edu
+Begin PBS Prologue Mon Feb  3 18:21:35 EST 2020
+Job ID:     139331.ice-sched.pace.gatech.edu
 User ID:    rtierney3
 Job name:   darts
 Queue:      coc-ice
-End PBS Prologue Mon Feb  3 17:17:45 EST 2020
+End PBS Prologue Mon Feb  3 18:21:35 EST 2020
 ---------------------------------------
 start process
 compiling
 running num processors experiment
 N= 6000000, R= 10, P= 1, PI= 3.141546
-Time= 23820 seconds
-
+Time= 6.804145 seconds
+N= 6000000, R= 10, P= 2, PI= 3.141512
+Time= 3.398788 seconds
+N= 6000000, R= 10, P= 3, PI= 3.141811
+Time= 2.414735 seconds
+N= 6000000, R= 10, P= 4, PI= 3.141976
+Time= 1.871540 seconds
+N= 6000000, R= 10, P= 5, PI= 3.142081
+Time= 1.545108 seconds
+N= 6000000, R= 10, P= 6, PI= 3.142085
+Time= 1.287839 seconds
+N= 6000000, R= 10, P= 7, PI= 3.142030
+Time= 1.103577 seconds
+N= 6000000, R= 10, P= 8, PI= 3.141891
+Time= 0.966177 seconds
+N= 6000000, R= 10, P= 9, PI= 3.141755
+Time= 1.023337 seconds
+N= 6000000, R= 10, P= 10, PI= 3.141816
+Time= 0.972674 seconds
+N= 6000000, R= 10, P= 11, PI= 3.141754
+Time= 0.745765 seconds
+N= 6000000, R= 10, P= 12, PI= 3.141616
+Time= 0.683513 seconds
+N= 6000000, R= 10, P= 13, PI= 3.141504
+Time= 0.626603 seconds
+N= 6000000, R= 10, P= 14, PI= 3.141707
+Time= 0.881241 seconds
+N= 6000000, R= 10, P= 15, PI= 3.141880
+Time= 0.536356 seconds
+N= 6000000, R= 10, P= 16, PI= 3.142051
+Time= 0.504344 seconds
+running num darts experiment
+N= 6000000, R= 10, P= 4, PI= 3.141976
+Time= 1.913291 seconds
+N= 7000000, R= 10, P= 4, PI= 3.141966
+Time= 2.181558 seconds
+N= 8000000, R= 10, P= 4, PI= 3.141813
+Time= 2.491646 seconds
+N= 9000000, R= 10, P= 4, PI= 3.141690
+Time= 2.802404 seconds
+N= 10000000, R= 10, P= 4, PI= 3.141784
+Time= 3.189923 seconds
+N= 11000000, R= 10, P= 4, PI= 3.141865
+Time= 3.535132 seconds
+N= 12000000, R= 10, P= 4, PI= 3.141777
+Time= 3.862187 seconds
+N= 13000000, R= 10, P= 4, PI= 3.141752
+Time= 4.183130 seconds
+N= 14000000, R= 10, P= 4, PI= 3.141789
+Time= 4.505076 seconds
+N= 15000000, R= 10, P= 4, PI= 3.141877
+Time= 4.827500 seconds
+execution is complete
 ---------------------------------------
-Begin PBS Epilogue Mon Feb  3 17:33:42 EST 2020
-Job ID:     139281.ice-sched.pace.gatech.edu
+Begin PBS Epilogue Mon Feb  3 18:22:41 EST 2020
+Job ID:     139331.ice-sched.pace.gatech.edu
 User ID:    rtierney3
 Job name:   darts
 Resources:  mem=2gb,neednodes=4:ppn=4,nodes=4:ppn=4,walltime=00:15:00
-Rsrc Used:  cput=00:31:38,energy_used=0,mem=23268kb,vmem=521948kb,walltime=00:15:58
+Rsrc Used:  cput=00:00:04,energy_used=0,mem=116568kb,vmem=1332204kb,walltime=00:01:06
 Queue:      coc-ice
 Nodes:     
-rich133-h35-15-r.pace.gatech.edu
-End PBS Epilogue Mon Feb  3 17:33:48 EST 2020
+rich133-h35-15-r.pace.gatech.edu rich133-h35-16-l.pace.gatech.edu
+End PBS Epilogue Mon Feb  3 18:22:41 EST 2020
 ---------------------------------------

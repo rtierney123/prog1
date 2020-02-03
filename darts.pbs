@@ -13,7 +13,7 @@ echo "start process"
 echo "compiling"
 mpicxx ./prog1.cpp -o prog1
 echo "running num processors experiment"
-mpirun -np 1 ./prog1 6000000 10
+mpirun -np 1 ./prog1 6000000 10 1
 mpirun -np 2 ./prog1 6000000 10
 mpirun -np 3 ./prog1 6000000 10
 mpirun -np 4 ./prog1 6000000 10
