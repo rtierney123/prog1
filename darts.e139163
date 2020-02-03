@@ -1,0 +1,20 @@
+prog1.cpp:21:6: error: ‘tuple’ in namespace ‘std’ does not name a template type
+ std::tuple<float, float> getXYCoord(float L, float theta){
+      ^
+prog1.cpp: In function ‘bool generateDartThrow(float)’:
+prog1.cpp:40:3: error: ‘tuple’ is not a member of ‘std’
+   std::tuple<float, float> coords = getXYCoord(sqrt(magnitude), degree);
+   ^
+prog1.cpp:40:14: error: expected primary-expression before ‘float’
+   std::tuple<float, float> coords = getXYCoord(sqrt(magnitude), degree);
+              ^
+prog1.cpp:42:13: error: ‘get’ is not a member of ‘std’
+   float x = std::get<0>(coords);
+             ^
+prog1.cpp:42:25: error: ‘coords’ was not declared in this scope
+   float x = std::get<0>(coords);
+                         ^
+prog1.cpp:43:13: error: ‘get’ is not a member of ‘std’
+   float y = std::get<1>(coords);
+             ^
+./prog1: error while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory

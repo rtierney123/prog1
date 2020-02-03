@@ -1,0 +1,26 @@
+---------------------------------------
+Begin PBS Prologue Mon Feb  3 17:17:45 EST 2020
+Job ID:     139281.ice-sched.pace.gatech.edu
+User ID:    rtierney3
+Job name:   darts
+Queue:      coc-ice
+End PBS Prologue Mon Feb  3 17:17:45 EST 2020
+---------------------------------------
+start process
+compiling
+running num processors experiment
+N= 6000000, R= 10, P= 1, PI= 3.141546
+Time= 23820 seconds
+
+---------------------------------------
+Begin PBS Epilogue Mon Feb  3 17:33:42 EST 2020
+Job ID:     139281.ice-sched.pace.gatech.edu
+User ID:    rtierney3
+Job name:   darts
+Resources:  mem=2gb,neednodes=4:ppn=4,nodes=4:ppn=4,walltime=00:15:00
+Rsrc Used:  cput=00:31:38,energy_used=0,mem=23268kb,vmem=521948kb,walltime=00:15:58
+Queue:      coc-ice
+Nodes:     
+rich133-h35-15-r.pace.gatech.edu
+End PBS Epilogue Mon Feb  3 17:33:48 EST 2020
+---------------------------------------

@@ -1,0 +1,2 @@
+/var/spool/torque/mom_priv/jobs/139098.ice-sched.pace.gatech.edu.SC: line 12: mpicxx: command not found
+/var/spool/torque/mom_priv/jobs/139098.ice-sched.pace.gatech.edu.SC: line 14: mpirun: command not found

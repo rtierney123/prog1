@@ -1,0 +1,47 @@
+#PBS -N darts
+#PBS -l nodes=4:ppn=4
+#PBS -l mem=2gb
+#PBS -l walltime=00:15:00
+#PBS -q coc-ice
+#PBS -o myjob.out
+#PBS -m abe
+#PBS -M rtierney3@gatech.edu
+
+cd ~/assignments/prog1
+module load gcc/4.9.0 mvapich2/2.1
+echo "start process"
+echo "compiling"
+mpicxx ./prog1.cpp -o prog1
+echo "running num processors experiment"
+mpirun -np 1 ./prog1 6000000 10
+mpirun -np 2 ./prog1 6000000 10
+mpirun -np 3 ./prog1 6000000 10
+mpirun -np 4 ./prog1 6000000 10
+mpirun -np 5 ./prog1 6000000 10
+mpirun -np 6 ./prog1 6000000 10
+mpirun -np 7 ./prog1 6000000 10
+mpirun -np 8 ./prog1 6000000 10
+mpirun -np 9 ./prog1 6000000 10
+mpirun -np 10 ./prog1 6000000 10
+mpirun -np 11 ./prog1 6000000 10
+mpirun -np 12 ./prog1 6000000 10
+mpirun -np 13 ./prog1 6000000 10
+mpirun -np 14 ./prog1 6000000 10
+mpirun -np 15 ./prog1 6000000 10
+mpirun -np 16 ./prog1 6000000 10
+
+echo "running num darts experiment"
+mpirun -np 4 ./prog1 6000000 10
+mpirun -np 4 ./prog1 7000000 10
+mpirun -np 4 ./prog1 8000000 10
+mpirun -np 4 ./prog1 9000000 10
+mpirun -np 4 ./prog1 10000000 10
+mpirun -np 4 ./prog1 11000000 10
+mpirun -np 4 ./prog1 12000000 10
+mpirun -np 4 ./prog1 13000000 10
+mpirun -np 4 ./prog1 14000000 10
+mpirun -np 4 ./prog1 15000000 10 
+echo "execution is complete"
+
+
+

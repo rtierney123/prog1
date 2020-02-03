@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <math.h>
 #include<bits/stdc++.h>
-#include "matplotlibcpp.h"
-namespace plt = matplotlibcpp;
 
 using namespace std;
 int N = 0;
@@ -20,12 +18,15 @@ float pi_sum = 0;
 
 
 //convert polar to xy coordinates
-std::tuple<float, float> getXYCoord(float L, float theta){
+float getXCoord(float L, float theta){
   float x = L * cos(theta);
-  float y = L * sin(theta);
-  return std::make_tuple(x, y);
+  return x;
 }
 
+float getYCoord(float L , float theta){
+  float y = L * sin(theta);
+  return y;
+}
 //random number generator
 float generateRandFloat(float size){
   float num = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
@@ -39,10 +40,8 @@ bool generateDartThrow(float radius){
   float square_size = radius / sqrt(2);
   float magnitude = generateRandFloat(pow(radius,2));
   float degree = generateRandFloat(2 * M_PI);
-  std::tuple<float, float> coords = getXYCoord(sqrt(magnitude), degree);
-
-  float x = std::get<0>(coords);
-  float y = std::get<1>(coords);
+  float  x = getXCoord(sqrt(magnitude), degree);
+  float y = getYCoord(sqrt(magnitude), degree);
   //printf("X  %f %d \n", x, world_rank);
   //printf("Y  %f %d \n", y, world_rank);
 
@@ -93,12 +92,12 @@ int main(int argc, char** argv) {
     // Get the name of the processor
     char processor_name[MPI_MAX_PROCESSOR_NAME];
     int name_len;
+
     MPI_Get_processor_name(processor_name, &name_len);
 
-    int start_time = time(NULL);
-    int total_start_time = 0;
-    MPI_Reduce(&start_time, &total_start_time, 1, MPI_INT, MPI_MIN, 0, MPI_COMM_WORLD);
-     
+    double time_now = MPI_Wtime();
+    double start_time = 0;
+    MPI_Reduce(&start_time, &time_now, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD); 
     if(argc<3) {
       if(world_rank == 0){
 	 printf("\nNo Extra Command Line Argument Passed Other Than Program Name");
@@ -154,10 +153,12 @@ int main(int argc, char** argv) {
 		 float total_est_pi = pi_sum/R;
 		 char output_buffer[50];
 		 char raw_buffer[50];
-		 int current_time = time(NULL);
-		 int computation_time = current_time-total_start_time;
-		 sprintf(output_buffer,  "N= %d, R= %d, P= %d, PI= %f\nTime= %d seconds\n", N, R, world_size, total_est_pi, computation_time);
-		  sprintf(raw_buffer,  "%d, %d, %d, %f, %d\n", N, R, world_size, total_est_pi, computation_time);
+		 double current_time = MPI_Wtime();
+                 double end_time = 0;
+		 MPI_Reduce(&end_time, &current_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+		double computation_time = end_time - start_time;
+		 sprintf(output_buffer,  "N= %d, R= %d, P= %d, PI= %f\nTime= %f seconds\n", N, R, world_size, total_est_pi, computation_time);
+		  sprintf(raw_buffer,  "%d, %d, %d, %f, %f\n", N, R, world_size, total_est_pi, computation_time);
 		 
 		 printf("%s\n",output_buffer);
 

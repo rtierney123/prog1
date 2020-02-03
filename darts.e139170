@@ -1,0 +1,8 @@
+prog1.cpp: In function ‘bool generateDartThrow(float)’:
+prog1.cpp:43:3: error: ‘x’ was not declared in this scope
+   x = getXCoord(sqrt(magnitude), degree);
+   ^
+prog1.cpp:44:3: error: ‘y’ was not declared in this scope
+   y = getYCoord(sqrt(magnitude), degree);
+   ^
+./prog1: error while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory
